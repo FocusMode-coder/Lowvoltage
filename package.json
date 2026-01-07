@@ -1,0 +1,11 @@
+{
+  "name": "signalcraft-website",
+  "version": "1.0.0",
+  "description": "SignalCraft Low Voltage Professional Website",
+  "scripts": {
+    "start": "npx http-server -p 8000"
+  },
+  "keywords": ["low-voltage", "signalcraft"],
+  "author": "SignalCraft",
+  "license": "MIT"
+}
