@@ -48,12 +48,24 @@ if (contactForm) {
         
         // Get form data
         const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
+        const name = formData.get('name');
+        const phone = formData.get('phone');
+        const service = formData.get('service');
+        const message = formData.get('message');
         
-        // Here you would typically send the data to a server
-        // For now, we'll show a success message
+        // Create SMS message
+        const smsBody = `New Quote Request from SignalCraft Website:\n\nName: ${name}\nPhone: ${phone}\nService: ${service}\nMessage: ${message}`;
         
-        // Create success message
+        // Encode the message for SMS
+        const encodedMessage = encodeURIComponent(smsBody);
+        
+        // Create SMS link
+        const smsLink = `sms:8052841054${/iPhone|iPad|iPod/.test(navigator.userAgent) ? '&' : '?'}body=${encodedMessage}`;
+        
+        // Open SMS app
+        window.location.href = smsLink;
+        
+        // Show success message
         const successMessage = document.createElement('div');
         successMessage.style.cssText = `
             position: fixed;
@@ -71,11 +83,11 @@ if (contactForm) {
         `;
         
         successMessage.innerHTML = `
-            <div style="font-size: 4rem; margin-bottom: 1rem;">✓</div>
-            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #667eea;">¡Mensaje Enviado!</h3>
-            <p style="color: #718096; margin-bottom: 2rem;">Gracias por tu interés. Te contactaremos pronto.</p>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">📱</div>
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #000000;">Opening Messages</h3>
+            <p style="color: #666666; margin-bottom: 2rem;">Your messaging app will open with your message ready to send to (805) 284-1054</p>
             <button onclick="this.parentElement.remove(); document.getElementById('overlay').remove();" style="
-                background: #667eea;
+                background: #000000;
                 color: white;
                 border: none;
                 padding: 1rem 2rem;
@@ -83,7 +95,7 @@ if (contactForm) {
                 font-weight: 600;
                 cursor: pointer;
                 font-size: 1rem;
-            ">Cerrar</button>
+            ">Close</button>
         `;
         
         // Create overlay
@@ -109,9 +121,6 @@ if (contactForm) {
         
         // Reset form
         contactForm.reset();
-        
-        // Log form data (in production, you'd send this to a server)
-        console.log('Form submitted with data:', data);
     });
 }
 
