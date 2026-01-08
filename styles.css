@@ -623,13 +623,14 @@ section {
 
 .contact-header-img {
     width: 100%;
-    max-width: 400px;
+    max-width: 250px;
     height: auto;
     border-radius: 12px;
     margin-bottom: 1.5rem;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    object-fit: contain;
 }
 
 .contact-icon {
