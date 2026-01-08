@@ -339,6 +339,31 @@ section {
     display: block;
 }
 
+/* Individual positioning for each service image */
+.img-security {
+    object-position: 50% 30%;
+}
+
+.img-theater {
+    object-position: 50% 40%;
+}
+
+.img-automation {
+    object-position: 50% 35%;
+}
+
+.img-wifi {
+    object-position: 50% 20%;
+}
+
+.img-audio {
+    object-position: 50% 35%;
+}
+
+.img-access {
+    object-position: 50% 40%;
+}
+
 .service-icon {
     font-size: 4rem;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
