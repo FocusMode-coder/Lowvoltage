@@ -127,7 +127,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(26, 26, 26, 0.7) 100%), url('../assets/images/VAN.jpg');
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(26, 26, 26, 0.7) 100%), url('assets/images/VAN.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -595,7 +595,7 @@ section {
 .method-details h4 {
     font-size: 1.1rem;
     margin-bottom: 0.3rem;
-    color: var(--text-dark);
+    color: var (--text-dark);
 }
 
 .method-details p {
