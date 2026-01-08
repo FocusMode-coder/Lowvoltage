@@ -622,9 +622,8 @@ section {
 }
 
 .contact-header-img {
-    width: 100%;
-    max-width: 50px;
-    height: auto;
+    width: 80px;
+    height: 80px;
     border-radius: 8px;
     margin-bottom: 1rem;
     display: block;
