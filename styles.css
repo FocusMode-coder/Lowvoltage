@@ -621,6 +621,17 @@ section {
     text-align: center;
 }
 
+.contact-header-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .contact-icon {
     font-size: 4rem;
     margin-bottom: 1rem;
