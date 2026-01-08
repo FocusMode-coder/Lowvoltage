@@ -49,23 +49,23 @@
                 </p>
                 <div class="hero-cta-group">
                     <a href="tel:8052841054" class="btn btn-primary btn-lg">
-                        <i class="fas fa-phone-alt" style="margin-right: 0.5rem;"></i> Call: (805) 284-1054
+                        <span class="phone-icon">📞</span> Call: (805) 284-1054
                     </a>
                     <a href="sms:8052841054" class="btn btn-secondary btn-lg">
-                        <i class="fas fa-comment-dots" style="margin-right: 0.5rem;"></i> Text Us
+                        <span class="phone-icon">💬</span> Text Us
                     </a>
                 </div>
                 <div class="hero-features">
                     <div class="feature-badge">
-                        <i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
+                        <span class="badge-icon">✓</span>
                         <span>Professional Installation</span>
                     </div>
                     <div class="feature-badge">
-                        <i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
+                        <span class="badge-icon">✓</span>
                         <span>Quality Guarantee</span>
                     </div>
                     <div class="feature-badge">
-                        <i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
+                        <span class="badge-icon">✓</span>
                         <span>24/7 Support</span>
                     </div>
                 </div>
@@ -251,38 +251,55 @@
                 <p class="section-subtitle">Success stories that demonstrate our quality</p>
             </div>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card" data-image="assets/images/RESIDENTIAL SECURITY SYSTEM.jpg" data-image2="assets/images/RESIDENTIAL SECURITY SYSTEM2.jpg">
                     <div class="project-image" style="background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(26, 26, 26, 0.95));">
                         <div class="project-overlay">
                             <h4>Residential Security System</h4>
                             <p>8 4K cameras with 24/7 monitoring</p>
+                            <span class="view-hint">Hover to preview • Click to view</span>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-image="assets/images/PREMIUM HOME THEATER.jpg">
                     <div class="project-image" style="background: linear-gradient(135deg, rgba(51, 51, 51, 0.95), rgba(0, 0, 0, 0.95));">
                         <div class="project-overlay">
                             <h4>Premium Home Theater</h4>
                             <p>7.1 Dolby Atmos System</p>
+                            <span class="view-hint">Hover to preview • Click to view</span>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-image="assets/images/COMPLETE AUTOMATION.jpg">
                     <div class="project-image" style="background: linear-gradient(135deg, rgba(30, 30, 30, 0.95), rgba(10, 10, 10, 0.95));">
                         <div class="project-overlay">
                             <h4>Complete Automation</h4>
                             <p>Smart home with full control</p>
+                            <span class="view-hint">Hover to preview • Click to view</span>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-image="assets/images/BUSINESS NETWORK.jpg">
                     <div class="project-image" style="background: linear-gradient(135deg, rgba(40, 40, 40, 0.95), rgba(0, 0, 0, 0.95));">
                         <div class="project-overlay">
                             <h4>Business Network</h4>
                             <p>Office with high-speed WiFi</p>
+                            <span class="view-hint">Hover to preview • Click to view</span>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Popup Modal for Images -->
+        <div class="image-popup" id="imagePopup">
+            <div class="popup-content">
+                <button class="popup-close" id="popupClose">&times;</button>
+                <div class="popup-nav">
+                    <button class="popup-prev" id="popupPrev">‹</button>
+                    <button class="popup-next" id="popupNext">›</button>
+                </div>
+                <img src="" alt="Project Image" id="popupImage">
+                <div class="popup-counter" id="popupCounter"></div>
             </div>
         </div>
     </section>
@@ -297,7 +314,7 @@
                     
                     <div class="contact-methods">
                         <a href="tel:8052841054" class="contact-method">
-                            <div class="method-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div class="method-icon">📞</div>
                             <div class="method-details">
                                 <h4>Phone</h4>
                                 <p>(805) 284-1054</p>
@@ -305,7 +322,7 @@
                         </a>
                         
                         <div class="contact-method">
-                            <div class="method-icon"><i class="fas fa-clock"></i></div>
+                            <div class="method-icon">⏰</div>
                             <div class="method-details">
                                 <h4>Hours</h4>
                                 <p>Mon - Fri: 8AM - 6PM<br>Sat: 9AM - 4PM</p>
@@ -313,7 +330,7 @@
                         </div>
                         
                         <div class="contact-method">
-                            <div class="method-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="method-icon">📍</div>
                             <div class="method-details">
                                 <h4>Service Area</h4>
                                 <p>Serving the entire local area</p>
@@ -335,7 +352,7 @@
                         
                         <div class="contact-options">
                             <a href="sms:8052841054" class="contact-option-btn">
-                                <span class="btn-icon"><i class="fas fa-sms"></i></span>
+                                <span class="btn-icon">💬</span>
                                 <div class="btn-content">
                                     <strong>Send a Text Message</strong>
                                     <span>(805) 284-1054</span>
@@ -343,7 +360,7 @@
                             </a>
                             
                             <a href="tel:8052841054" class="contact-option-btn">
-                                <span class="btn-icon"><i class="fas fa-phone"></i></span>
+                                <span class="btn-icon">📞</span>
                                 <div class="btn-content">
                                     <strong>Call Now</strong>
                                     <span>(805) 284-1054</span>

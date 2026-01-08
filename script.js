@@ -203,3 +203,126 @@ document.querySelectorAll('.service-card, .project-card').forEach(card => {
         this.style.transition = 'all 0.3s ease';
     });
 });
+
+// Project cards image popup functionality
+const projectCards = document.querySelectorAll('.project-card');
+const imagePopup = document.getElementById('imagePopup');
+const popupImage = document.getElementById('popupImage');
+const popupClose = document.getElementById('popupClose');
+const popupPrev = document.getElementById('popupPrev');
+const popupNext = document.getElementById('popupNext');
+const popupCounter = document.getElementById('popupCounter');
+const popupNav = document.querySelector('.popup-nav');
+
+let currentImages = [];
+let currentImageIndex = 0;
+let isPopupLocked = false;
+
+projectCards.forEach(card => {
+    let hoverTimeout;
+    
+    // Hover to preview
+    card.addEventListener('mouseenter', function() {
+        if (!isPopupLocked) {
+            hoverTimeout = setTimeout(() => {
+                showPopup(card, false);
+            }, 500); // Show after 0.5s hover
+        }
+    });
+    
+    card.addEventListener('mouseleave', function() {
+        clearTimeout(hoverTimeout);
+        if (!isPopupLocked) {
+            hidePopup();
+        }
+    });
+    
+    // Click to lock
+    card.addEventListener('click', function(e) {
+        e.preventDefault();
+        showPopup(card, true);
+        isPopupLocked = true;
+    });
+});
+
+function showPopup(card, locked) {
+    const image1 = card.getAttribute('data-image');
+    const image2 = card.getAttribute('data-image2');
+    
+    currentImages = [image1];
+    if (image2) {
+        currentImages.push(image2);
+    }
+    
+    currentImageIndex = 0;
+    popupImage.src = currentImages[0];
+    imagePopup.classList.add('active');
+    
+    updateNavigation();
+    updateCounter();
+}
+
+function hidePopup() {
+    imagePopup.classList.remove('active');
+    isPopupLocked = false;
+    currentImages = [];
+    currentImageIndex = 0;
+}
+
+function updateNavigation() {
+    if (currentImages.length > 1 && isPopupLocked) {
+        popupNav.classList.add('show-nav');
+    } else {
+        popupNav.classList.remove('show-nav');
+    }
+}
+
+function updateCounter() {
+    if (currentImages.length > 1 && isPopupLocked) {
+        popupCounter.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+        popupCounter.style.display = 'block';
+    } else {
+        popupCounter.style.display = 'none';
+    }
+}
+
+// Close popup
+popupClose.addEventListener('click', hidePopup);
+
+imagePopup.addEventListener('click', function(e) {
+    if (e.target === imagePopup) {
+        hidePopup();
+    }
+});
+
+// Navigation between images
+popupPrev.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (currentImageIndex > 0) {
+        currentImageIndex--;
+        popupImage.src = currentImages[currentImageIndex];
+        updateCounter();
+    }
+});
+
+popupNext.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (currentImageIndex < currentImages.length - 1) {
+        currentImageIndex++;
+        popupImage.src = currentImages[currentImageIndex];
+        updateCounter();
+    }
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', function(e) {
+    if (imagePopup.classList.contains('active') && isPopupLocked) {
+        if (e.key === 'Escape') {
+            hidePopup();
+        } else if (e.key === 'ArrowLeft') {
+            popupPrev.click();
+        } else if (e.key === 'ArrowRight') {
+            popupNext.click();
+        }
+    }
+});
